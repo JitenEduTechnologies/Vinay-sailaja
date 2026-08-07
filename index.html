@@ -22,14 +22,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         body { background: #060402; overflow-x: hidden; font-family: var(--font-body); color: var(--text-primary); min-height: 100vh; min-height: 100dvh; }
+
         #petalsCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999; }
         #particlesCanvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+
         .main-content { opacity: 0; visibility: hidden; transition: opacity 0.8s ease 0.2s, visibility 0.8s ease 0.2s; }
         .main-content.visible { opacity: 1; visibility: visible; }
 
         .hero { position: relative; min-height: 100vh; min-height: 100dvh; width: 100%; display: flex; align-items: center; justify-content: center; background: #0a0602; overflow: hidden; font-family: var(--font-ui); padding: 60px 0; }
+
         .cinematic-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(0.92) contrast(1.12) saturate(1.08) blur(6px); transform: scale(1.04); transition: transform 0.15s cubic-bezier(0.2,0.9,0.4,1.1), opacity 3s ease-in-out; will-change: transform, opacity; opacity: 0; }
         .cinematic-bg.active { opacity: 1; }
+
         .overlay-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 20%, rgba(230,205,140,0.16) 0%, rgba(15,10,5,0.45) 70%, rgba(6,3,1,0.5) 100%); z-index: 1; backdrop-filter: blur(2px); }
         .secondary-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(212,175,106,0.03) 0px, rgba(212,175,106,0.03) 2px, transparent 2px, transparent 8px); z-index: 1; pointer-events: none; }
 
@@ -48,8 +52,8 @@
         .names h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 10vw, 6.5rem); font-weight: 600; letter-spacing: -0.5px; background: linear-gradient(135deg, #f9e5af, #e0bc7a, #f7e3b0, #cfaa6b); background-clip: text; -webkit-background-clip: text; color: transparent; margin: 0; line-height: 1.15; }
         .names .ampersand { font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; background: linear-gradient(145deg, #e9cf97, #b48b44); background-clip: text; -webkit-background-clip: text; color: transparent; margin: 0 0.3rem; display: inline; }
 
-        .invite-text-telugu { font-family: 'Noto Sans Telugu', sans-serif; font-weight: 500; font-size: clamp(0.8rem, 1.4vw, 1rem); line-height: 1.65; color: #e9d5a8; max-width: 620px; margin: 0.3rem auto; letter-spacing: 0.3px; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.42s; padding: 0 0.4rem; }
-        .invite-text { font-family: 'Inter', sans-serif; font-weight: 350; font-size: clamp(0.75rem, 1.2vw, 0.95rem); line-height: 1.6; color: #f7efdf; max-width: 620px; margin: 0.3rem auto 1.2rem; letter-spacing: 0.3px; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.45s; padding: 0 0.4rem; }
+        .invite-text-telugu { font-family: 'Noto Sans Telugu', sans-serif; font-weight: 500; font-size: clamp(0.85rem, 1.5vw, 1.05rem); line-height: 1.7; color: #e9d5a8; max-width: 620px; margin: 0.3rem auto; letter-spacing: 0.3px; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.42s; padding: 0 0.4rem; }
+        .invite-text { font-family: 'Inter', sans-serif; font-weight: 350; font-size: clamp(0.8rem, 1.3vw, 0.95rem); line-height: 1.6; color: #f7efdf; max-width: 620px; margin: 0.3rem auto 1.2rem; letter-spacing: 0.3px; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.45s; padding: 0 0.4rem; }
         .invite-text .family, .invite-text-telugu .family { font-weight: 600; color: #e9cb93; border-bottom: 1px dashed rgba(212,175,106,0.5); }
 
         .gold-divider { width: 50px; height: 1.5px; background: linear-gradient(90deg, transparent, #e8cf8b, #ffeaaf, #e8cf8b, transparent); margin: 1rem auto 1.5rem; opacity: 0; animation: dividerBreathe 4s ease-in-out infinite; animation-delay: 0.55s; box-shadow: 0 0 10px rgba(212,175,106,0.5); max-width: 180px; }
@@ -59,21 +63,21 @@
         .countdown-card { background: rgba(14,11,7,0.85); border: 1px solid rgba(212,175,106,0.45); border-radius: 16px; flex: 0 1 auto; width: clamp(75px, 14vw, 105px); height: clamp(75px, 14vw, 105px); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 10px rgba(212,175,106,0.04); padding: 0.3rem; }
         .countdown-card:active { transform: scale(0.96); }
         .countdown-number { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.2vw, 1.8rem); font-weight: 700; color: #e2c28b; line-height: 1; text-shadow: 0 0 10px rgba(212,175,55,0.5); margin-bottom: 0.25rem; }
-        .countdown-label { font-family: 'Inter', sans-serif; font-size: clamp(0.38rem, 0.8vw, 0.5rem); letter-spacing: 2px; color: #c9b896; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+        .countdown-label { font-family: 'Inter', sans-serif; font-size: clamp(0.4rem, 0.85vw, 0.52rem); letter-spacing: 2px; color: #c9b896; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
 
         .details-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(0.7rem, 1.5vw, 1.5rem); margin: 1rem 0; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.65s; }
         .event-card { background: rgba(12,10,7,0.65); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: clamp(22px, 3vw, 38px); padding: clamp(0.9rem, 1.5vw, 1.4rem) clamp(0.7rem, 1.5vw, 1.5rem); flex: 1 1 170px; max-width: 260px; text-align: center; border: 1px solid rgba(212,175,106,0.5); box-shadow: 0 18px 30px -10px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; }
-        .event-icon-circle { width: clamp(30px, 4.5vw, 42px); height: clamp(30px, 4.5vw, 42px); border-radius: 50%; background: rgba(212,175,106,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; font-size: clamp(0.8rem, 1.6vw, 1.1rem); border: 1px solid rgba(212,175,106,0.4); }
-        .event-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.8vw, 1.3rem); font-weight: 600; color: #f3deac; margin-bottom: 0.15rem; }
-        .event-title-telugu { font-family: 'Noto Sans Telugu', sans-serif; font-size: clamp(0.6rem, 1vw, 0.7rem); font-weight: 500; color: #d4b87a; margin-bottom: 0.4rem; opacity: 0.9; }
-        .event-detail { font-size: clamp(0.58rem, 0.9vw, 0.72rem); line-height: 1.45; color: #e9e0cf; font-weight: 350; margin-bottom: 0.4rem; }
+        .event-icon-circle { width: clamp(32px, 4.5vw, 44px); height: clamp(32px, 4.5vw, 44px); border-radius: 50%; background: rgba(212,175,106,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; font-size: clamp(0.85rem, 1.6vw, 1.15rem); border: 1px solid rgba(212,175,106,0.4); }
+        .event-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 1.8vw, 1.35rem); font-weight: 600; color: #f3deac; margin-bottom: 0.15rem; }
+        .event-title-telugu { font-family: 'Noto Sans Telugu', sans-serif; font-size: clamp(0.65rem, 1.05vw, 0.75rem); font-weight: 500; color: #d4b87a; margin-bottom: 0.4rem; opacity: 0.9; }
+        .event-detail { font-size: clamp(0.62rem, 0.95vw, 0.75rem); line-height: 1.45; color: #e9e0cf; font-weight: 350; margin-bottom: 0.4rem; }
 
         .venue-section { margin: 0.4rem 0 0.2rem; opacity: 0; animation: fadeUp 0.9s ease forwards; animation-delay: 0.7s; text-align: center; padding: 0; }
-        .venue-label { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.75rem, 1.1vw, 0.9rem); color: #e2c28b; font-style: italic; margin-bottom: 0.4rem; display: block; }
-        .map-link-big { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,175,106,0.18); padding: 0.45rem 1.2rem; border-radius: 40px; font-family: 'Inter', sans-serif; font-size: clamp(0.62rem, 1vw, 0.78rem); font-weight: 600; color: #f6e3b5; text-decoration: none; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 0.6px solid rgba(212,175,106,0.7); letter-spacing: 0.4px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); }
+        .venue-label { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.78rem, 1.1vw, 0.92rem); color: #e2c28b; font-style: italic; margin-bottom: 0.4rem; display: block; }
+        .map-link-big { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,175,106,0.18); padding: 0.45rem 1.2rem; border-radius: 40px; font-family: 'Inter', sans-serif; font-size: clamp(0.65rem, 1vw, 0.8rem); font-weight: 600; color: #f6e3b5; text-decoration: none; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 0.6px solid rgba(212,175,106,0.7); letter-spacing: 0.4px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); }
 
-        .love-note { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.8rem, 1.2vw, 1rem); font-style: italic; color: #e9dccd; margin: 0.6rem 0 0.2rem; border-top: 1px solid rgba(212,175,106,0.5); padding-top: 0.6rem; opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.85s; letter-spacing: 0.3px; }
-        .signature { font-family: 'Inter', sans-serif; font-size: clamp(0.6rem, 1vw, 0.8rem); font-weight: 400; letter-spacing: 1px; color: #dfc794; margin-top: 0.15rem; opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.95s; }
+        .love-note { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.85rem, 1.3vw, 1.05rem); font-style: italic; color: #e9dccd; margin: 0.6rem 0 0.2rem; border-top: 1px solid rgba(212,175,106,0.5); padding-top: 0.6rem; opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.85s; letter-spacing: 0.3px; }
+        .signature { font-family: 'Inter', sans-serif; font-size: clamp(0.65rem, 1.05vw, 0.82rem); font-weight: 400; letter-spacing: 1px; color: #dfc794; margin-top: 0.15rem; opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.95s; }
         .highlight-name { font-weight: 700; color: #f3deac; }
 
         .scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 30; font-size: 1.4rem; color: #dbb46a; animation: bounceHint 2s infinite; opacity: 0.7; }
@@ -86,7 +90,7 @@
         .music-toggle.playing { animation: musicPulse 1.5s ease-in-out infinite; }
         @keyframes musicPulse { 0%,100% { box-shadow: 0 3px 12px rgba(0,0,0,0.3); } 50% { box-shadow: 0 0 18px rgba(212,175,55,0.5); } }
 
-        /* ============ POPUP - FIXED FOR DESKTOP/TABLET ============ */
+        /* ============ POPUP ============ */
         .celebration-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh; background: rgba(0,0,0,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 100000; display: flex; align-items: center; justify-content: center; opacity: 1; visibility: visible; transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55); font-family: 'Cormorant Garamond', serif; padding: 1rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .celebration-popup-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .celebration-popup { background: linear-gradient(145deg, #fffef7, #fff8ea); border-radius: 48px; max-width: 480px; width: 92%; padding: 2rem 1.8rem; text-align: center; position: relative; transform: scale(0.7) rotate(-2deg); transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1); box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 3px rgba(212,175,106,0.6), 0 0 0 8px rgba(255,245,215,0.4); border: 1px solid rgba(212,175,106,0.8); animation: popupIn 0.5s cubic-bezier(0.34,1.2,0.64,1) forwards; margin: auto; max-height: 90vh; max-height: 90dvh; overflow-y: auto; }
@@ -106,97 +110,70 @@
         .click-hint { font-family: 'Inter', sans-serif; font-size: 0.65rem; letter-spacing: 2px; color: #2d7d2d; text-transform: uppercase; margin-bottom: 5px; font-weight: 700; animation: hintPulseGreen 1.2s ease-in-out infinite; }
         @keyframes hintPulseGreen { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
 
-        /* GREEN BUTTON - SMALLER, FITS INSIDE BOX */
-        .popup-close-btn {
-            background: linear-gradient(135deg, #2d7d2d, #3da53d, #4ec94e, #3da53d, #2d7d2d);
-            background-size: 300% 300%;
-            border: none;
-            padding: 0.7rem 1.6rem;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 22px rgba(45,125,45,0.5), 0 0 0 0 rgba(45,125,45,0.7);
-            letter-spacing: 0.8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-            animation: greenButtonPulse 1.2s infinite, bgShiftGreen 5s ease infinite;
-            -webkit-tap-highlight-color: transparent;
-            white-space: nowrap;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            max-width: 90%;
-        }
+        .popup-close-btn { background: linear-gradient(135deg, #2d7d2d, #3da53d, #4ec94e, #3da53d, #2d7d2d); background-size: 300% 300%; border: none; padding: 0.7rem 1.6rem; border-radius: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.85rem; color: #ffffff; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 22px rgba(45,125,45,0.5), 0 0 0 0 rgba(45,125,45,0.7); letter-spacing: 0.8px; display: inline-flex; align-items: center; gap: 8px; position: relative; overflow: hidden; animation: greenButtonPulse 1.2s infinite, bgShiftGreen 5s ease infinite; -webkit-tap-highlight-color: transparent; white-space: nowrap; text-shadow: 0 1px 2px rgba(0,0,0,0.2); max-width: 90%; }
         @keyframes bgShiftGreen { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         .popup-close-btn i { font-size: 0.95em; transition: transform 0.2s; color: #fff; }
         .popup-close-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease; }
         @keyframes greenButtonPulse { 0% { box-shadow: 0 6px 22px rgba(45,125,45,0.5), 0 0 0 0 rgba(45,125,45,0.7); transform: scale(1); } 50% { box-shadow: 0 8px 28px rgba(45,125,45,0.8), 0 0 0 8px rgba(45,125,45,0.2); transform: scale(1.02); } 100% { box-shadow: 0 6px 22px rgba(45,125,45,0.5), 0 0 0 0 rgba(45,125,45,0.7); transform: scale(1); } }
         .popup-close-btn:active { transform: scale(0.94); transition: transform 0.1s ease; }
-
-        @media (hover: hover) {
-            .popup-close-btn:hover::before { left: 100%; }
-            .popup-close-btn:hover { transform: scale(1.04); box-shadow: 0 10px 30px rgba(45,125,45,0.9), 0 0 0 4px rgba(45,125,45,0.35); }
-            .popup-close-btn:hover i { transform: translateX(3px); }
-        }
+        @media (hover: hover) { .popup-close-btn:hover::before { left: 100%; } .popup-close-btn:hover { transform: scale(1.04); box-shadow: 0 10px 30px rgba(45,125,45,0.9), 0 0 0 4px rgba(45,125,45,0.35); } .popup-close-btn:hover i { transform: translateX(3px); } }
 
         .sparkle-burst-container { position: fixed; inset: 0; pointer-events: none; z-index: 100001; }
         .sparkle-particle { position: absolute; pointer-events: none; animation: sparkleFly 3.2s linear forwards; }
         @keyframes sparkleFly { 0% { transform: translate(0,0) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0); opacity: 0; } }
 
-        /* ============ RESPONSIVE - MOBILE KEPT EXACTLY AS BEFORE ============ */
+        /* ============ RESPONSIVE - INCREASED MOBILE FONTS ============ */
         @media (max-width: 780px) {
             .luxury-card { width: 94%; margin: 10px auto; padding: 1.8rem 1.3rem; border-radius: 40px; }
-            .names h1 { font-size: 3.2rem; } .names .ampersand { font-size: 2rem; } .blessing-line { font-size: 1.1rem; }
-            .invite-text { font-size: 0.85rem; } .invite-text-telugu { font-size: 0.78rem; } .event-title { font-size: 1.2rem; }
+            .names h1 { font-size: 3.6rem; } .names .ampersand { font-size: 2.2rem; } .blessing-line { font-size: 1.2rem; }
+            .invite-text { font-size: 0.92rem; } .invite-text-telugu { font-size: 0.85rem; } .event-title { font-size: 1.35rem; }
             .event-card { padding: 1.1rem 0.9rem; max-width: 100%; flex: 1 1 190px; } .details-grid { gap: 1rem; } .hero { padding: 35px 0; }
             .ganesha-circle { width: clamp(95px, 20vw, 130px); height: clamp(95px, 20vw, 130px); }
             .countdown-card { width: clamp(65px, 17vw, 90px); height: clamp(65px, 17vw, 90px); border-radius: 14px; }
-            .countdown-number { font-size: clamp(1rem, 2.2vw, 1.3rem); } .countdown-label { font-size: clamp(0.33rem, 0.75vw, 0.42rem); }
+            .countdown-number { font-size: clamp(1.15rem, 2.5vw, 1.5rem); } .countdown-label { font-size: clamp(0.38rem, 0.8vw, 0.48rem); }
             .celebration-popup { width: 93%; padding: 1.8rem 1.3rem; border-radius: 42px; }
-            .popup-title { font-size: 2.2rem; } .popup-couple-name { font-size: 1.8rem; } .floating-emoji { font-size: 2.5rem; }
-            .popup-emoji-row { gap: 12px; } .popup-message { font-size: 0.85rem; }
-            .popup-close-btn { padding: 0.7rem 1.4rem; font-size: 0.82rem; } .popup-subtitle { font-size: 0.75rem; }
-            .love-note { font-size: 0.9rem; padding-top: 0.5rem; margin: 0.4rem 0 0.15rem; }
-            .venue-section { margin: 0.25rem 0 0.15rem; } .venue-label { font-size: 0.7rem; margin-bottom: 0.35rem; }
-            .map-link-big { padding: 0.4rem 1rem; font-size: 0.65rem; } .signature { font-size: 0.78rem; margin-top: 0.12rem; }
-            .click-hint { font-size: 0.65rem; } .click-arrow { font-size: 1.3rem; }
+            .popup-title { font-size: 2.4rem; } .popup-couple-name { font-size: 1.9rem; } .floating-emoji { font-size: 2.6rem; }
+            .popup-emoji-row { gap: 12px; } .popup-message { font-size: 0.9rem; }
+            .popup-close-btn { padding: 0.7rem 1.4rem; font-size: 0.88rem; } .popup-subtitle { font-size: 0.8rem; }
+            .love-note { font-size: 0.95rem; padding-top: 0.5rem; margin: 0.4rem 0 0.15rem; }
+            .venue-section { margin: 0.25rem 0 0.15rem; } .venue-label { font-size: 0.78rem; margin-bottom: 0.35rem; }
+            .map-link-big { padding: 0.4rem 1rem; font-size: 0.72rem; } .signature { font-size: 0.85rem; margin-top: 0.12rem; }
+            .click-hint { font-size: 0.7rem; } .click-arrow { font-size: 1.4rem; }
+            .event-detail { font-size: 0.75rem; } .event-title-telugu { font-size: 0.68rem; }
         }
 
         @media (max-width: 480px) {
             .luxury-card { width: 95%; padding: 1.5rem 0.9rem; border-radius: 32px; margin: 6px auto; }
-            .names h1 { font-size: 2.5rem; } .names .ampersand { font-size: 1.6rem; } .blessing-line { font-size: 0.9rem; }
-            .invite-text { font-size: 0.78rem; line-height: 1.45; } .invite-text-telugu { font-size: 0.7rem; line-height: 1.45; }
-            .event-title { font-size: 1.05rem; } .event-title-telugu { font-size: 0.58rem; } .event-detail { font-size: 0.6rem; }
+            .names h1 { font-size: 2.8rem; } .names .ampersand { font-size: 1.8rem; } .blessing-line { font-size: 1rem; }
+            .invite-text { font-size: 0.85rem; line-height: 1.5; } .invite-text-telugu { font-size: 0.78rem; line-height: 1.5; }
+            .event-title { font-size: 1.2rem; } .event-title-telugu { font-size: 0.65rem; } .event-detail { font-size: 0.68rem; }
             .event-card { padding: 0.85rem 0.55rem; border-radius: 24px; max-width: 48%; } .details-grid { gap: 0.5rem; }
             .ganesha-circle { width: clamp(85px, 26vw, 110px); height: clamp(85px, 26vw, 110px); }
             .countdown-card { width: clamp(58px, 19vw, 70px); height: clamp(58px, 19vw, 70px); border-radius: 11px; padding: 0.2rem; }
-            .countdown-number { font-size: 0.9rem; margin-bottom: 0.18rem; } .countdown-label { font-size: 0.3rem; letter-spacing: 1px; }
+            .countdown-number { font-size: 1rem; margin-bottom: 0.18rem; } .countdown-label { font-size: 0.35rem; letter-spacing: 1px; }
             .countdown-row { gap: 0.3rem; margin: 0.8rem 0 1.2rem; }
             .celebration-popup { width: 94%; padding: 1.6rem 1rem; border-radius: 36px; }
-            .popup-title { font-size: 1.8rem; } .popup-couple-name { font-size: 1.5rem; } .floating-emoji { font-size: 2rem; }
-            .popup-emoji-row { gap: 8px; } .popup-message { font-size: 0.78rem; }
-            .popup-close-btn { padding: 0.65rem 1.2rem; font-size: 0.78rem; } .popup-subtitle { font-size: 0.68rem; }
-            .popup-ganesha { font-size: 2rem; } .click-hint { font-size: 0.6rem; } .click-arrow { font-size: 1.2rem; }
+            .popup-title { font-size: 2rem; } .popup-couple-name { font-size: 1.6rem; } .floating-emoji { font-size: 2.2rem; }
+            .popup-emoji-row { gap: 8px; } .popup-message { font-size: 0.85rem; }
+            .popup-close-btn { padding: 0.65rem 1.2rem; font-size: 0.85rem; } .popup-subtitle { font-size: 0.75rem; }
+            .popup-ganesha { font-size: 2.2rem; } .click-hint { font-size: 0.65rem; } .click-arrow { font-size: 1.3rem; }
             .music-toggle { bottom: 12px; right: 12px; width: 28px; height: 28px; font-size: 0.65rem; }
             .gold-divider { margin: 0.6rem auto 1rem; } .venue-section { margin: 0.15rem 0 0.1rem; }
-            .venue-label { font-size: 0.6rem; margin-bottom: 0.25rem; } .map-link-big { padding: 0.35rem 0.9rem; font-size: 0.58rem; gap: 4px; border-radius: 35px; }
-            .love-note { font-size: 0.78rem; padding-top: 0.4rem; margin: 0.3rem 0 0.1rem; } .signature { font-size: 0.65rem; margin-top: 0.08rem; }
+            .venue-label { font-size: 0.7rem; margin-bottom: 0.25rem; } .map-link-big { padding: 0.35rem 0.9rem; font-size: 0.65rem; gap: 4px; border-radius: 35px; }
+            .love-note { font-size: 0.88rem; padding-top: 0.4rem; margin: 0.3rem 0 0.1rem; } .signature { font-size: 0.75rem; margin-top: 0.08rem; }
         }
 
         @media (max-width: 370px) {
-            .names h1 { font-size: 2rem; } .names .ampersand { font-size: 1.3rem; }
+            .names h1 { font-size: 2.2rem; } .names .ampersand { font-size: 1.4rem; }
             .celebration-popup { width: 96%; padding: 1.3rem 0.8rem; border-radius: 30px; }
-            .popup-title { font-size: 1.5rem; } .popup-couple-name { font-size: 1.25rem; } .floating-emoji { font-size: 1.6rem; }
-            .popup-close-btn { padding: 0.55rem 1rem; font-size: 0.7rem; gap: 5px; }
+            .popup-title { font-size: 1.7rem; } .popup-couple-name { font-size: 1.35rem; } .floating-emoji { font-size: 1.8rem; }
+            .popup-close-btn { padding: 0.55rem 1rem; font-size: 0.75rem; gap: 5px; }
             .ganesha-circle { width: 70px; height: 70px; } .countdown-card { width: 50px; height: 50px; border-radius: 9px; }
-            .countdown-number { font-size: 0.75rem; } .countdown-label { font-size: 0.25rem; }
-            .venue-section { margin: 0.08rem 0; } .venue-label { font-size: 0.55rem; margin-bottom: 0.18rem; }
-            .map-link-big { padding: 0.3rem 0.7rem; font-size: 0.5rem; } .love-note { font-size: 0.68rem; padding-top: 0.3rem; margin: 0.2rem 0 0.08rem; } .signature { font-size: 0.55rem; }
+            .countdown-number { font-size: 0.85rem; } .countdown-label { font-size: 0.28rem; }
+            .venue-section { margin: 0.08rem 0; } .venue-label { font-size: 0.62rem; margin-bottom: 0.18rem; }
+            .map-link-big { padding: 0.3rem 0.7rem; font-size: 0.58rem; } .love-note { font-size: 0.75rem; padding-top: 0.3rem; margin: 0.2rem 0 0.08rem; } .signature { font-size: 0.65rem; }
+            .invite-text { font-size: 0.75rem; } .invite-text-telugu { font-size: 0.7rem; }
+            .event-title { font-size: 1.05rem; } .event-detail { font-size: 0.62rem; }
         }
 
         @media (min-width: 1400px) { .luxury-card { padding: 4rem 4rem; max-width: 1150px; } .event-card { padding: 1.5rem 1.8rem; max-width: 300px; } .celebration-popup { max-width: 520px; padding: 2.4rem 2rem; } }
@@ -211,26 +188,17 @@
     <div class="celebration-popup-overlay" id="celebrationPopup">
         <div class="celebration-popup">
             <div class="popup-emoji-row">
-                <span class="floating-emoji">🎉</span>
-                <span class="floating-emoji">💖</span>
-                <span class="floating-emoji">✨</span>
-                <span class="floating-emoji">🎊</span>
-                <span class="floating-emoji">💕</span>
+                <span class="floating-emoji">🎉</span><span class="floating-emoji">💖</span><span class="floating-emoji">✨</span><span class="floating-emoji">🎊</span><span class="floating-emoji">💕</span>
             </div>
             <span class="popup-ganesha">🕉️</span>
             <div class="popup-title">Celebration Time!</div>
             <div class="popup-subtitle">YOU'RE CORDIALLY INVITED</div>
             <div class="popup-couple-name">Vinay Kumar 🤍 Sailaja</div>
             <div class="popup-divider"></div>
-            <div class="popup-message">
-                Join us as we begin our beautiful journey together!<br>
-                Your presence will make our celebration truly unforgettable.
-            </div>
+            <div class="popup-message">Join us as we begin our beautiful journey together!<br>Your presence will make our celebration truly unforgettable.</div>
             <span class="click-arrow">⬇</span>
             <div class="click-hint">👇 CLICK THE GREEN BUTTON 👇</div>
-            <button class="popup-close-btn" id="btnJoinCelebration">
-                <i class="fas fa-hand-pointer"></i> CLICK TO JOIN <i class="fas fa-hand-pointer"></i>
-            </button>
+            <button class="popup-close-btn" id="btnJoinCelebration"><i class="fas fa-hand-pointer"></i> CLICK TO JOIN <i class="fas fa-hand-pointer"></i></button>
         </div>
     </div>
 
@@ -278,42 +246,286 @@
     <audio id="omAudio" loop preload="auto" style="display:none;"><source src="https://grey-armadillo-126145.hostingersite.com/assets/music/1.mp3" type="audio/mpeg"></audio>
 
     <script>
-        const celebrationPopup=document.getElementById('celebrationPopup'),btnJoinCelebration=document.getElementById('btnJoinCelebration'),sparkleBurstContainer=document.getElementById('sparkleBurstContainer'),mainContent=document.getElementById('mainContent'),petalsCanvas=document.getElementById('petalsCanvas'),ctxPetals=petalsCanvas.getContext('2d'),particlesCanvasEl=document.getElementById('particlesCanvas'),ctxParticlesEl=particlesCanvasEl?particlesCanvasEl.getContext('2d'):null,musicToggle=document.getElementById('musicToggle'),omAudio=document.getElementById('omAudio'),hero=document.getElementById('heroSection'),luxuryCard=document.getElementById('luxuryCard');
-        let petals=[],petalWidth,petalHeight;
-        function resizePetalsCanvas(){petalWidth=window.innerWidth;petalHeight=window.innerHeight;petalsCanvas.width=petalWidth;petalsCanvas.height=petalHeight;}
-        function initPetals(){petals=[];const count=Math.min(75,Math.floor((petalWidth*petalHeight)/9000));for(let i=0;i<count;i++){petals.push({x:Math.random()*petalWidth,y:Math.random()*-petalHeight*2,size:Math.random()*13+6,speedY:Math.random()*0.8+0.35,speedX:(Math.random()-0.5)*0.4,rotation:Math.random()*Math.PI*2,rotationSpeed:(Math.random()-0.5)*0.014,opacity:Math.random()*0.25+0.2,wobbleAmp:Math.random()*0.4+0.15,wobbleSpeed:Math.random()*0.007+0.003,wobbleOffset:Math.random()*Math.PI*2,hue:Math.random()*14+350,saturation:Math.random()*14+60,lightness:Math.random()*10+42});}}
-        function drawPetals(timestamp){ctxPetals.clearRect(0,0,petalWidth,petalHeight);petals.forEach(p=>{p.y+=p.speedY;p.x+=p.speedX+Math.sin(timestamp*p.wobbleSpeed+p.wobbleOffset)*p.wobbleAmp;p.rotation+=p.rotationSpeed;if(p.y>petalHeight+50){p.y=-50;p.x=Math.random()*petalWidth;}if(p.x<-50)p.x=petalWidth+50;if(p.x>petalWidth+50)p.x=-50;ctxPetals.save();ctxPetals.translate(p.x,p.y);ctxPetals.rotate(p.rotation);const w=p.size*0.45,h=p.size*0.75;ctxPetals.beginPath();ctxPetals.moveTo(0,-h*0.6);ctxPetals.bezierCurveTo(w,-h*0.4,w,h*0.4,0,h*0.85);ctxPetals.bezierCurveTo(-w,h*0.4,-w,-h*0.4,0,-h*0.6);const petalGrad=ctxPetals.createRadialGradient(0,-h*0.12,p.size*0.03,0,h*0.22,p.size*0.7);petalGrad.addColorStop(0,`hsla(${p.hue},${p.saturation}%,${p.lightness+20}%,${p.opacity+0.08})`);petalGrad.addColorStop(0.45,`hsla(${p.hue},${p.saturation}%,${p.lightness}%,${p.opacity})`);petalGrad.addColorStop(0.8,`hsla(${p.hue-2},${p.saturation+5}%,${p.lightness-8}%,${p.opacity-0.03})`);petalGrad.addColorStop(1,`hsla(${p.hue-5},${p.saturation+8}%,${p.lightness-14}%,${p.opacity*0.12})`);ctxPetals.fillStyle=petalGrad;ctxPetals.fill();ctxPetals.strokeStyle=`hsla(${p.hue-2},${p.saturation}%,${p.lightness-3}%,${p.opacity*0.2})`;ctxPetals.lineWidth=0.2;ctxPetals.beginPath();ctxPetals.moveTo(0,-h*0.45);ctxPetals.quadraticCurveTo(w*0.08,h*0.05,w*0.25,h*0.55);ctxPetals.stroke();ctxPetals.beginPath();ctxPetals.moveTo(0,-h*0.45);ctxPetals.quadraticCurveTo(-w*0.08,h*0.05,-w*0.25,h*0.55);ctxPetals.stroke();ctxPetals.restore();});requestAnimationFrame(drawPetals);}
-        resizePetalsCanvas();initPetals();requestAnimationFrame(drawPetals);
+        const celebrationPopup = document.getElementById('celebrationPopup');
+        const btnJoinCelebration = document.getElementById('btnJoinCelebration');
+        const sparkleBurstContainer = document.getElementById('sparkleBurstContainer');
+        const mainContent = document.getElementById('mainContent');
+        const petalsCanvas = document.getElementById('petalsCanvas');
+        const ctxPetals = petalsCanvas.getContext('2d');
+        const particlesCanvasEl = document.getElementById('particlesCanvas');
+        const ctxParticlesEl = particlesCanvasEl ? particlesCanvasEl.getContext('2d') : null;
+        const musicToggle = document.getElementById('musicToggle');
+        const omAudio = document.getElementById('omAudio');
+        const hero = document.getElementById('heroSection');
+        const luxuryCard = document.getElementById('luxuryCard');
 
-        let particles=[],particlesWidth,particlesHeight;
-        function resizeParticlesCanvas(){if(!particlesCanvasEl||!hero)return;particlesWidth=window.innerWidth;particlesHeight=hero.offsetHeight;particlesCanvasEl.width=particlesWidth;particlesCanvasEl.height=particlesHeight;initParticles();}
-        function initParticles(){particles=[];const count=Math.min(100,Math.floor((particlesWidth*particlesHeight)/13000));for(let i=0;i<count;i++){particles.push({x:Math.random()*particlesWidth,y:Math.random()*particlesHeight,radius:Math.random()*2.8+0.4,alpha:Math.random()*0.5+0.15,speedX:(Math.random()-0.5)*0.14,speedY:(Math.random()-0.5)*0.08+0.02});}}
-        function drawParticles(){if(!ctxParticlesEl)return;ctxParticlesEl.clearRect(0,0,particlesWidth,particlesHeight);for(let p of particles){p.x+=p.speedX;p.y+=p.speedY;if(p.x<-20)p.x=particlesWidth+20;if(p.x>particlesWidth+20)p.x=-20;if(p.y<-20)p.y=particlesHeight+20;if(p.y>particlesHeight+20)p.y=-20;ctxParticlesEl.beginPath();ctxParticlesEl.arc(p.x,p.y,p.radius,0,Math.PI*2);ctxParticlesEl.fillStyle=`rgba(235,205,145,${p.alpha*0.8})`;ctxParticlesEl.shadowColor='rgba(212,175,106,0.7)';ctxParticlesEl.shadowBlur=7;ctxParticlesEl.fill();ctxParticlesEl.shadowBlur=0;ctxParticlesEl.beginPath();ctxParticlesEl.arc(p.x-0.5,p.y-0.3,p.radius*0.28,0,Math.PI*2);ctxParticlesEl.fillStyle='rgba(255,245,200,0.85)';ctxParticlesEl.fill();}ctxParticlesEl.shadowBlur=0;requestAnimationFrame(drawParticles);}
-        if(ctxParticlesEl&&hero){resizeParticlesCanvas();requestAnimationFrame(drawParticles);}
+        let petals = [];
+        let petalWidth, petalHeight;
 
-        const natureBgs=document.querySelectorAll('.cinematic-bg');let currentBgIndex=0;
-        function rotateBackground(){if(natureBgs.length===0)return;natureBgs[currentBgIndex].classList.remove('active');currentBgIndex=(currentBgIndex+1)%natureBgs.length;natureBgs[currentBgIndex].classList.add('active');}
-        setInterval(rotateBackground,8000);
+        function resizePetalsCanvas() {
+            petalWidth = window.innerWidth;
+            petalHeight = window.innerHeight;
+            petalsCanvas.width = petalWidth;
+            petalsCanvas.height = petalHeight;
+        }
 
-        if(hero){hero.addEventListener('mousemove',(e)=>{const mouseX=e.clientX/window.innerWidth,mouseY=e.clientY/window.innerHeight,moveX=(mouseX-0.5)*14,moveY=(mouseY-0.5)*10;const activeBg=natureBgs[currentBgIndex];if(activeBg)activeBg.style.transform=`scale(1.04) translate(${moveX*0.2}px,${moveY*0.2}px)`;if(luxuryCard&&window.innerWidth>768)luxuryCard.style.transform=`translate(${moveX*0.3}px,${moveY*0.2}px)`;});hero.addEventListener('mouseleave',()=>{const activeBg=natureBgs[currentBgIndex];if(activeBg)activeBg.style.transform='scale(1.04) translate(0px,0px)';if(luxuryCard)luxuryCard.style.transform='translate(0px,0px)';});}
+        function initPetals() {
+            petals = [];
+            const count = Math.min(75, Math.floor((petalWidth * petalHeight) / 9000));
+            for (let i = 0; i < count; i++) {
+                petals.push({
+                    x: Math.random() * petalWidth,
+                    y: Math.random() * -petalHeight * 2,
+                    size: Math.random() * 13 + 6,
+                    speedY: Math.random() * 0.8 + 0.35,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotationSpeed: (Math.random() - 0.5) * 0.014,
+                    opacity: Math.random() * 0.25 + 0.2,
+                    wobbleAmp: Math.random() * 0.4 + 0.15,
+                    wobbleSpeed: Math.random() * 0.007 + 0.003,
+                    wobbleOffset: Math.random() * Math.PI * 2,
+                    hue: Math.random() * 14 + 350,
+                    saturation: Math.random() * 14 + 60,
+                    lightness: Math.random() * 10 + 42,
+                });
+            }
+        }
 
-        let musicPlaying=true;
-        function initOmAudio(){if(omAudio){omAudio.volume=0.01;omAudio.play().then(()=>{musicPlaying=true;musicToggle.classList.add('playing');musicToggle.textContent='🕉️';}).catch(()=>{musicPlaying=false;musicToggle.classList.remove('playing');musicToggle.textContent='🔇';});}}
-        function toggleMusic(){if(!omAudio)return;if(musicPlaying){omAudio.pause();musicPlaying=false;musicToggle.classList.remove('playing');musicToggle.textContent='🔇';}else{omAudio.volume=0.01;omAudio.play().then(()=>{musicPlaying=true;musicToggle.classList.add('playing');musicToggle.textContent='🕉️';}).catch(()=>{});}}
-        musicToggle.addEventListener('click',(e)=>{e.stopPropagation();toggleMusic();});
+        function drawPetals(timestamp) {
+            ctxPetals.clearRect(0, 0, petalWidth, petalHeight);
+            petals.forEach(p => {
+                p.y += p.speedY;
+                p.x += p.speedX + Math.sin(timestamp * p.wobbleSpeed + p.wobbleOffset) * p.wobbleAmp;
+                p.rotation += p.rotationSpeed;
+                if (p.y > petalHeight + 50) { p.y = -50;
+                    p.x = Math.random() * petalWidth; }
+                if (p.x < -50) p.x = petalWidth + 50;
+                if (p.x > petalWidth + 50) p.x = -50;
+                ctxPetals.save();
+                ctxPetals.translate(p.x, p.y);
+                ctxPetals.rotate(p.rotation);
+                const w = p.size * 0.45;
+                const h = p.size * 0.75;
+                ctxPetals.beginPath();
+                ctxPetals.moveTo(0, -h * 0.6);
+                ctxPetals.bezierCurveTo(w, -h * 0.4, w, h * 0.4, 0, h * 0.85);
+                ctxPetals.bezierCurveTo(-w, h * 0.4, -w, -h * 0.4, 0, -h * 0.6);
+                const petalGrad = ctxPetals.createRadialGradient(0, -h * 0.12, p.size * 0.03, 0, h * 0.22, p.size * 0.7);
+                petalGrad.addColorStop(0, `hsla(${p.hue}, ${p.saturation}%, ${p.lightness + 20}%, ${p.opacity + 0.08})`);
+                petalGrad.addColorStop(0.45, `hsla(${p.hue}, ${p.saturation}%, ${p.lightness}%, ${p.opacity})`);
+                petalGrad.addColorStop(0.8, `hsla(${p.hue - 2}, ${p.saturation + 5}%, ${p.lightness - 8}%, ${p.opacity - 0.03})`);
+                petalGrad.addColorStop(1, `hsla(${p.hue - 5}, ${p.saturation + 8}%, ${p.lightness - 14}%, ${p.opacity * 0.12})`);
+                ctxPetals.fillStyle = petalGrad;
+                ctxPetals.fill();
+                ctxPetals.strokeStyle = `hsla(${p.hue - 2}, ${p.saturation}%, ${p.lightness - 3}%, ${p.opacity * 0.2})`;
+                ctxPetals.lineWidth = 0.2;
+                ctxPetals.beginPath();
+                ctxPetals.moveTo(0, -h * 0.45);
+                ctxPetals.quadraticCurveTo(w * 0.08, h * 0.05, w * 0.25, h * 0.55);
+                ctxPetals.stroke();
+                ctxPetals.beginPath();
+                ctxPetals.moveTo(0, -h * 0.45);
+                ctxPetals.quadraticCurveTo(-w * 0.08, h * 0.05, -w * 0.25, h * 0.55);
+                ctxPetals.stroke();
+                ctxPetals.restore();
+            });
+            requestAnimationFrame(drawPetals);
+        }
 
-        function triggerSparkleBurst(){const icons=['❤️','💖','✨','🎉','💕','🌸','🎊','⭐','💫','🕊️','💝','🌟','🥂','💐','🎀','🕉️'];const colors=['#dbb46a','#e8cf8b','#ffeaaf','#c8aa6e','#f5e2b0','#e6bc73','#ffd966','#f3deac','#2d7d2d','#4ec94e'];const fragment=document.createDocumentFragment();const count=window.innerWidth<480?80:140;for(let i=0;i<count;i++){const particle=document.createElement('div');particle.classList.add('sparkle-particle');particle.textContent=icons[Math.floor(Math.random()*icons.length)];particle.style.left='50%';particle.style.top='50%';particle.style.fontSize=(Math.random()*20+10)+'px';particle.style.setProperty('--tx',(Math.random()-0.5)*window.innerWidth*1.4+'px');particle.style.setProperty('--ty',(Math.random()-0.5)*window.innerHeight*1.4+'px');particle.style.setProperty('--rot',(Math.random()*720-360)+'deg');particle.style.animationDuration=(Math.random()*2+1.8)+'s';particle.style.animationDelay=Math.random()*0.3+'s';particle.style.color=colors[Math.floor(Math.random()*colors.length)];particle.style.filter='drop-shadow(0 2px 4px rgba(0,0,0,0.18))';fragment.appendChild(particle);}sparkleBurstContainer.appendChild(fragment);setTimeout(()=>{sparkleBurstContainer.innerHTML='';},3600);}
+        resizePetalsCanvas();
+        initPetals();
+        requestAnimationFrame(drawPetals);
 
-        function closeCelebrationPopup(){triggerSparkleBurst();celebrationPopup.classList.add('hidden');setTimeout(()=>{mainContent.classList.add('visible');initOmAudio();resizeParticlesCanvas();},250);}
-        btnJoinCelebration.addEventListener('click',closeCelebrationPopup);
-        celebrationPopup.addEventListener('click',function(e){if(e.target===celebrationPopup)closeCelebrationPopup();});
+        let particles = [];
+        let particlesWidth, particlesHeight;
 
-        function updateCountdown(){const weddingDate=new Date('2026-08-26T03:31:00+05:30');const now=new Date();const diff=weddingDate-now;const cdDays=document.getElementById('cdDays'),cdHours=document.getElementById('cdHours'),cdMins=document.getElementById('cdMins'),cdSecs=document.getElementById('cdSecs');if(!cdDays)return;if(diff<=0){cdDays.textContent='00';cdHours.textContent='00';cdMins.textContent='00';cdSecs.textContent='00';return;}cdDays.textContent=String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');cdHours.textContent=String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');cdMins.textContent=String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');cdSecs.textContent=String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');}
-        setInterval(updateCountdown,1000);updateCountdown();
+        function resizeParticlesCanvas() {
+            if (!particlesCanvasEl || !hero) return;
+            particlesWidth = window.innerWidth;
+            particlesHeight = hero.offsetHeight;
+            particlesCanvasEl.width = particlesWidth;
+            particlesCanvasEl.height = particlesHeight;
+            initParticles();
+        }
 
-        window.addEventListener('resize',()=>{resizePetalsCanvas();initPetals();resizeParticlesCanvas();});
-        window.addEventListener('orientationchange',()=>{setTimeout(()=>{resizePetalsCanvas();initPetals();resizeParticlesCanvas();},300);});
-        mainContent.classList.remove('visible');triggerSparkleBurst();
+        function initParticles() {
+            particles = [];
+            const count = Math.min(100, Math.floor((particlesWidth * particlesHeight) / 13000));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * particlesWidth,
+                    y: Math.random() * particlesHeight,
+                    radius: Math.random() * 2.8 + 0.4,
+                    alpha: Math.random() * 0.5 + 0.15,
+                    speedX: (Math.random() - 0.5) * 0.14,
+                    speedY: (Math.random() - 0.5) * 0.08 + 0.02,
+                });
+            }
+        }
+
+        function drawParticles() {
+            if (!ctxParticlesEl) return;
+            ctxParticlesEl.clearRect(0, 0, particlesWidth, particlesHeight);
+            for (let p of particles) {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x < -20) p.x = particlesWidth + 20;
+                if (p.x > particlesWidth + 20) p.x = -20;
+                if (p.y < -20) p.y = particlesHeight + 20;
+                if (p.y > particlesHeight + 20) p.y = -20;
+                ctxParticlesEl.beginPath();
+                ctxParticlesEl.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctxParticlesEl.fillStyle = `rgba(235,205,145,${p.alpha * 0.8})`;
+                ctxParticlesEl.shadowColor = 'rgba(212,175,106,0.7)';
+                ctxParticlesEl.shadowBlur = 7;
+                ctxParticlesEl.fill();
+                ctxParticlesEl.shadowBlur = 0;
+                ctxParticlesEl.beginPath();
+                ctxParticlesEl.arc(p.x - 0.5, p.y - 0.3, p.radius * 0.28, 0, Math.PI * 2);
+                ctxParticlesEl.fillStyle = 'rgba(255,245,200,0.85)';
+                ctxParticlesEl.fill();
+            }
+            ctxParticlesEl.shadowBlur = 0;
+            requestAnimationFrame(drawParticles);
+        }
+
+        if (ctxParticlesEl && hero) {
+            resizeParticlesCanvas();
+            requestAnimationFrame(drawParticles);
+        }
+
+        const natureBgs = document.querySelectorAll('.cinematic-bg');
+        let currentBgIndex = 0;
+
+        function rotateBackground() {
+            if (natureBgs.length === 0) return;
+            natureBgs[currentBgIndex].classList.remove('active');
+            currentBgIndex = (currentBgIndex + 1) % natureBgs.length;
+            natureBgs[currentBgIndex].classList.add('active');
+        }
+        setInterval(rotateBackground, 8000);
+
+        if (hero) {
+            hero.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                const moveX = (mouseX - 0.5) * 14;
+                const moveY = (mouseY - 0.5) * 10;
+                const activeBg = natureBgs[currentBgIndex];
+                if (activeBg) activeBg.style.transform = `scale(1.04) translate(${moveX * 0.2}px, ${moveY * 0.2}px)`;
+                if (luxuryCard && window.innerWidth > 768) luxuryCard.style.transform = `translate(${moveX * 0.3}px, ${moveY * 0.2}px)`;
+            });
+            hero.addEventListener('mouseleave', () => {
+                const activeBg = natureBgs[currentBgIndex];
+                if (activeBg) activeBg.style.transform = 'scale(1.04) translate(0px, 0px)';
+                if (luxuryCard) luxuryCard.style.transform = 'translate(0px, 0px)';
+            });
+        }
+
+        let musicPlaying = true;
+
+        function initOmAudio() {
+            if (omAudio) {
+                omAudio.volume = 0.01;
+                omAudio.play().then(() => {
+                    musicPlaying = true;
+                    musicToggle.classList.add('playing');
+                    musicToggle.textContent = '🕉️';
+                }).catch(() => {
+                    musicPlaying = false;
+                    musicToggle.classList.remove('playing');
+                    musicToggle.textContent = '🔇';
+                });
+            }
+        }
+
+        function toggleMusic() {
+            if (!omAudio) return;
+            if (musicPlaying) {
+                omAudio.pause();
+                musicPlaying = false;
+                musicToggle.classList.remove('playing');
+                musicToggle.textContent = '🔇';
+            } else {
+                omAudio.volume = 0.01;
+                omAudio.play().then(() => {
+                    musicPlaying = true;
+                    musicToggle.classList.add('playing');
+                    musicToggle.textContent = '🕉️';
+                }).catch(() => {});
+            }
+        }
+        musicToggle.addEventListener('click', (e) => { e.stopPropagation();
+            toggleMusic(); });
+
+        function triggerSparkleBurst() {
+            const icons = ['❤️', '💖', '✨', '🎉', '💕', '🌸', '🎊', '⭐', '💫', '🕊️', '💝', '🌟', '🥂', '💐', '🎀', '🕉️'];
+            const colors = ['#dbb46a', '#e8cf8b', '#ffeaaf', '#c8aa6e', '#f5e2b0', '#e6bc73', '#ffd966', '#f3deac', '#2d7d2d', '#4ec94e'];
+            const fragment = document.createDocumentFragment();
+            const count = window.innerWidth < 480 ? 80 : 140;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('sparkle-particle');
+                particle.textContent = icons[Math.floor(Math.random() * icons.length)];
+                particle.style.left = '50%';
+                particle.style.top = '50%';
+                particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                particle.style.setProperty('--tx', (Math.random() - 0.5) * window.innerWidth * 1.4 + 'px');
+                particle.style.setProperty('--ty', (Math.random() - 0.5) * window.innerHeight * 1.4 + 'px');
+                particle.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+                particle.style.animationDuration = (Math.random() * 2 + 1.8) + 's';
+                particle.style.animationDelay = Math.random() * 0.3 + 's';
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.18))';
+                fragment.appendChild(particle);
+            }
+            sparkleBurstContainer.appendChild(fragment);
+            setTimeout(() => { sparkleBurstContainer.innerHTML = ''; }, 3600);
+        }
+
+        function closeCelebrationPopup() {
+            triggerSparkleBurst();
+            celebrationPopup.classList.add('hidden');
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                initOmAudio();
+                resizeParticlesCanvas();
+            }, 250);
+        }
+        btnJoinCelebration.addEventListener('click', closeCelebrationPopup);
+        celebrationPopup.addEventListener('click', function(e) { if (e.target === celebrationPopup) closeCelebrationPopup(); });
+
+        function updateCountdown() {
+            const weddingDate = new Date('2026-08-26T03:31:00+05:30');
+            const now = new Date();
+            const diff = weddingDate - now;
+            const cdDays = document.getElementById('cdDays');
+            const cdHours = document.getElementById('cdHours');
+            const cdMins = document.getElementById('cdMins');
+            const cdSecs = document.getElementById('cdSecs');
+            if (!cdDays) return;
+            if (diff <= 0) { cdDays.textContent = '00';
+                cdHours.textContent = '00';
+                cdMins.textContent = '00';
+                cdSecs.textContent = '00'; return; }
+            cdDays.textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            cdHours.textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            cdMins.textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            cdSecs.textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        window.addEventListener('resize', () => { resizePetalsCanvas();
+            initPetals();
+            resizeParticlesCanvas(); });
+        window.addEventListener('orientationchange', () => { setTimeout(() => { resizePetalsCanvas();
+                initPetals();
+                resizeParticlesCanvas(); }, 300); });
+
+        mainContent.classList.remove('visible');
+        triggerSparkleBurst();
     </script>
 </body>
 </html>
